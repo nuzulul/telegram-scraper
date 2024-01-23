@@ -128,3 +128,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+#hook
+test/cjs/node_modules/
+test/mjs/node_modules/
+public/
+package-lock.json

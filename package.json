@@ -1,0 +1,53 @@
+{
+  "name": "telegram-scraper",
+  "version": "1.0.0",
+  "description": "A simple Telegram channel scraper",
+  "main": "dist/cjs/telegram-scraper.js",
+  "module": "dist/mjs/telegram-scraper.js",
+  "exports": {
+    ".": {
+        "import": "./dist/mjs/telegram-scraper.js",
+        "require": "./dist/cjs/telegram-scraper.js"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "npm run build && node public/test/server.js",
+    "start-mjs":"npm run build && node public/test/server-mjs.js",
+    "dev-tes": "nodemon -x ts-node public/test/server",
+    "dev":"nodemon -e js,ts --watch src --watch test --exec \"npm start\"",
+    "dev-mjs":"nodemon -e js,ts --watch src --watch test --exec \"npm run start-mjs\"",
+    "build-win": "npm run prepare-build-win && tsc -p tsconfig-mjs.json && tsc -p tsconfig-cjs.json && echo {\"type\": \"commonjs\"}>dist\\cjs\\package.json && echo {\"type\": \"module\"}>dist\\mjs\\package.json",
+    "prepare-build":"if exist .\\dist (echo ok) && mkdir dist && del /S /Q .\\dist\\*",
+    "prepare-build-win":"if not exist .\\dist (mkdir dist) else (rmdir /S /Q .\\dist\\)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nuzulul/telegram-scraper.git"
+  },
+  "keywords": [
+    "telegram",
+    "telegram-scraper",
+    "telegram-channel-scraper",
+    "telegram-to-json",
+    "telegram-channel-to-json",
+    "telegram-bot",
+    "web-scraper",
+    "web-scraping",
+    "html-parser",
+    "bot",
+    "scraper"
+  ],
+  "author": "Nuzulul Zulkarnain",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nuzulul/telegram-scraper/issues"
+  },
+  "homepage": "https://github.com/nuzulul/telegram-scraper#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
