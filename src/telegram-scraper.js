@@ -1,4 +1,6 @@
 /*
+ * https://github.com/nuzulul/telegram-scraper
+ *
  * MIT License
  * 
  * Copyright (c) 2024 Nuzulul Zulkarnain

@@ -31,7 +31,7 @@ void async function main() {
 ```
 
 ```javascript
-const telegram_scraper = require('./../src/telegram-scraper').default
+const telegram_scraper = require('telegram-scraper').default
 
 void async function main() {
 
