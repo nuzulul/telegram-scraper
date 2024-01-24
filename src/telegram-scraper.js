@@ -24,10 +24,6 @@
  * SOFTWARE.
 */
 
-/*
- * https://github.com/nuzulul/telegram-scraper
-*/
-
 import html_parser from './html-parser'
 
 import https from 'https'
