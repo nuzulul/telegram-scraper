@@ -20,7 +20,7 @@ A simple Telegram channel scraper
 npm install telegram-scraper
 ```
 
-## Usage
+## Example Usage
 
 ```javascript
 import telegram_scraper from 'telegram-scraper'
@@ -48,6 +48,37 @@ void async function main() {
 	console.log(result)
 	
 }()
+```
+## Example App
+
+```javascript
+const telegram_scraper = require('telegram-scraper').default
+
+const http = require('http')
+
+const serverport =  process.env.PORT || 8080
+
+let telegram_channel = 'telegram'
+
+const server = http.createServer(async(req,res)=>{
+
+	let result = await telegram_scraper(telegram_channel)
+
+	res.statusCode = 200
+	
+	res.setHeader('Content-Type','text/plain')
+	
+	res.setHeader('Access-Control-Allow-Origin','*')
+	
+	res.end(result)
+	
+})
+
+server.listen(serverport,()=>{
+
+	console.log(`Server running at ${serverport}`) 
+	
+})
 ```
 
 ## Example Output
