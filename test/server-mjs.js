@@ -1,4 +1,4 @@
-import telegram_scraper from './../src/telegram-scraper'
+import {telegram_scraper} from './../src/telegram-scraper'
 
 import http from 'http'
 

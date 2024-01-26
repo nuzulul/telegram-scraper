@@ -2,7 +2,7 @@ import html_parser from './html-parser'
 
 import https from 'https'
 
-export default async function telegram_scraper(channel) {
+export async function telegram_scraper(channel) {
 
 	function get(targeturl,resolve){
 	

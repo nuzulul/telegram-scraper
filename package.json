@@ -1,6 +1,6 @@
 {
   "name": "telegram-scraper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple Telegram channel scraper",
   "main": "dist/cjs/telegram-scraper.js",
   "module": "dist/mjs/telegram-scraper.js",
@@ -22,6 +22,10 @@
     "prepare-build":"if exist .\\dist (echo ok) && mkdir dist && del /S /Q .\\dist\\*",
     "prepare-build-win":"if not exist .\\dist (mkdir dist) else (rmdir /S /Q .\\dist\\)"
   },
+  "files": [
+    "dist/",
+    "LICENSE"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nuzulul/telegram-scraper.git"

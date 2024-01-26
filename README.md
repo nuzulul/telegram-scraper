@@ -23,7 +23,7 @@ npm install telegram-scraper
 ## Example Usage
 
 ```javascript
-import telegram_scraper from 'telegram-scraper'
+import {telegram_scraper} from 'telegram-scraper'
 
 void async function main() {
 
@@ -37,7 +37,7 @@ void async function main() {
 ```
 
 ```javascript
-const telegram_scraper = require('telegram-scraper').default
+const {telegram_scraper} = require('telegram-scraper')
 
 void async function main() {
 
@@ -52,7 +52,7 @@ void async function main() {
 ## Example App
 
 ```javascript
-const telegram_scraper = require('telegram-scraper').default
+const {telegram_scraper} = require('telegram-scraper')
 
 const http = require('http')
 

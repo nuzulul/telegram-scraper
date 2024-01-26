@@ -1,4 +1,4 @@
-const telegram_scraper = require('./../src/telegram-scraper').default
+const {telegram_scraper} = require('./../src/telegram-scraper')
 
 const http = require('http')
 
