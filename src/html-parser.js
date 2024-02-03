@@ -1,3 +1,4 @@
+/** HTML tag which cannot have children*/
 const VOID_TAGS = [
 	'area',
 	'base',
@@ -13,6 +14,10 @@ const VOID_TAGS = [
 	'source'
 ];
 
+/** 
+ * Parse html document to object
+ * @param {string} input - The html string to parse
+ */
 export default function html_parser(input) {
 	
 	const root = { children: [] }

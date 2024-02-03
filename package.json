@@ -11,16 +11,18 @@
     }
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "start": "npm run build && node public/test/server.js",
-    "start-mjs":"npm run build && node public/test/server-mjs.js",
-    "dev-tes": "nodemon -x ts-node public/test/server",
-    "dev":"nodemon -e js,ts --watch src --watch test --exec \"npm start\"",
-    "dev-mjs":"nodemon -e js,ts --watch src --watch test --exec \"npm run start-mjs\"",
-    "build-win": "npm run prepare-build-win && tsc -p tsconfig-mjs.json && tsc -p tsconfig-cjs.json && echo {\"type\": \"commonjs\"}>dist\\cjs\\package.json && echo {\"type\": \"module\"}>dist\\mjs\\package.json",
-    "prepare-build":"if exist .\\dist (echo ok) && mkdir dist && del /S /Q .\\dist\\*",
-    "prepare-build-win":"if not exist .\\dist (mkdir dist) else (rmdir /S /Q .\\dist\\)"
+    "start": "npm run dev-node",
+	
+	"removedir": "node -e \"var fs = require('fs'); try{process.argv.slice(1).map((fpath) => fs.rmdirSync(fpath, { recursive: true }))}catch(err){console.log(`Dist not found`)}; process.exit(0);\"",
+	"build-all": "npm run prepare-build-win && tsc -p tsconfig-mjs.json && tsc -p tsconfig-cjs.json && echo {\"type\": \"commonjs\"}>dist\\cjs\\package.json && echo {\"type\": \"module\"}>dist\\mjs\\package.json",	
+    "build": "npm run removedir dist && npm run build-all",
+    
+    "build-dev":"npm run removedir public && tsc -p tsconfig.json",
+	"dev-node":"nodemon -e js,ts --watch src --watch test --exec \"npm run build-dev && node public/test/server.js\"",
+	"dev-node-esm":"nodemon -e js,ts --watch src --watch test --exec \"npm run build-dev && node public/test/server-mjs.js\"",
+	"dev":"npm run dev-node",
+	
+	"test": "npm run dev-node"
   },
   "files": [
     "dist/",

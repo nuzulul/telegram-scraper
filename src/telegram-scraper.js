@@ -4,6 +4,14 @@ import https from 'https'
 
 export async function telegram_scraper(channel) {
 
+	function HtmlEntitiesDecode(string) {
+		string = string.replace(/&quot;/g, '"');
+		string = string.replace(/&amp;/g, '&');
+		string = string.replaceAll('&nbsp;',' ')
+		string = string.replaceAll("&#39;","'")
+		return string;
+	}
+
 	function get(targeturl,resolve){
 	
 			https.get(targeturl, res => {
@@ -275,7 +283,7 @@ export async function telegram_scraper(channel) {
 			
 			message_url:'https://t.me/'+arr[0].children[0].attributes["data-post"],
 			
-			message_text,
+			message_text:HtmlEntitiesDecode(message_text),
 			
 			message_photo,
 			

@@ -12,7 +12,7 @@ const server = http.createServer(async(req,res)=>{
 
 	res.statusCode = 200
 	
-	res.setHeader('Content-Type','text/plain')
+	res.setHeader('Content-Type','application/json')
 	
 	res.setHeader('Access-Control-Allow-Origin','*')
 	
