@@ -1,9 +1,6 @@
 # telegram-scraper
 A simple Telegram channel scraper
 
-[![NPM](https://nodei.co/npm/telegram-scraper.png?mini=true)](https://www.npmjs.com/package/telegram-scraper)
-[![npm version](https://badge.fury.io/js/telegram-scraper.svg)](https://www.npmjs.com/package/telegram-scraper)
-
 ## Features
 
 * ✅ 0 Dependencies
@@ -119,3 +116,7 @@ server.listen(serverport,()=>{
 ## License
 
 MIT
+
+## Maintainers
+
+[Nuzulul Zulkarnain](https://github.com/nuzulul)
