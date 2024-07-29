@@ -1,28 +1,28 @@
 {
   "name": "telegram-scraper",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple Telegram channel scraper",
   "main": "dist/cjs/telegram-scraper.js",
   "module": "dist/mjs/telegram-scraper.js",
   "exports": {
     ".": {
-        "import": "./dist/mjs/telegram-scraper.js",
-        "require": "./dist/cjs/telegram-scraper.js"
+      "import": "./dist/mjs/telegram-scraper.js",
+      "require": "./dist/cjs/telegram-scraper.js"
     }
   },
   "scripts": {
-    "start": "npm run dev-node",
-	
-	"removedir": "node -e \"var fs = require('fs'); try{process.argv.slice(1).map((fpath) => fs.rmdirSync(fpath, { recursive: true }))}catch(err){console.log(`Dist not found`)}; process.exit(0);\"",
-	"build-all": "npm run prepare-build-win && tsc -p tsconfig-mjs.json && tsc -p tsconfig-cjs.json && echo {\"type\": \"commonjs\"}>dist\\cjs\\package.json && echo {\"type\": \"module\"}>dist\\mjs\\package.json",	
+    "start": "npm run dev",
+    "removedir": "node -e \"var fs = require('fs'); try{process.argv.slice(1).map((fpath) => fs.rmdirSync(fpath, { recursive: true }))}catch(err){console.log(`Dist not found`)}; process.exit(0);\"",
+    "copyfile": "node -e \"var fs = require('fs'); try { process.argv .slice(1) .map((fsource) => fs.copyFileSync(fsource, process.argv.slice(-1)[0])); } catch (err) { console.log(`Error : ${err}`); } process.exit(0);\"",
+    "build-all": "tsc -p tsconfig-mjs.json && tsc -p tsconfig-cjs.json && echo {\"type\": \"commonjs\"}>dist\\cjs\\package.json && echo {\"type\": \"module\"}>dist\\mjs\\package.json",
     "build": "npm run removedir dist && npm run build-all",
-    
-    "build-dev":"npm run removedir public && tsc -p tsconfig.json",
-	"dev-node":"nodemon -e js,ts --watch src --watch test --exec \"npm run build-dev && node public/test/server.js\"",
-	"dev-node-esm":"nodemon -e js,ts --watch src --watch test --exec \"npm run build-dev && node public/test/server-mjs.js\"",
-	"dev":"npm run dev-node",
-	
-	"test": "npm run dev-node"
+    "build-dev": "npm run removedir public && tsc -p tsconfig.json",
+    "dev-node-cjs": "nodemon -e js,ts --watch src --watch test --exec \"npm run build-dev && node public/test/server.js\"",
+    "dev-node-mjs": "nodemon -e js,ts --watch src --watch test --exec \"npm run build-dev && node public/test/server-mjs.js\"",
+    "dev": "npm run dev-node-cjs",
+    "test-cjs": "npm run build && npm run removedir public && mkdir public &&  npm run copyfile ./test/test-cjs.js ./public/test.js && echo {\"type\": \"commonjs\"}>public\\package.json && node ./public/test.js",
+    "test-esm": "npm run build && npm run removedir public && mkdir public &&  npm run copyfile ./test/test-mjs.js ./public/test.js && echo {\"type\": \"module\"}>public\\package.json && node ./public/test.js",
+    "test": "npm run dev-node"
   },
   "files": [
     "dist/",
