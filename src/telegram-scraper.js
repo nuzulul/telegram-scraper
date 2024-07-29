@@ -1,4 +1,4 @@
-import html_parser from './html-parser'
+import html_parser from './html-parser.js'
 
 import https from 'https'
 
