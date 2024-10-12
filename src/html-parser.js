@@ -1,3 +1,5 @@
+//! telegram-scraper -- https://github.com/nuzulul/telegram-scraper
+
 /** HTML tag which cannot have children*/
 const VOID_TAGS = [
 	'area',

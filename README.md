@@ -119,4 +119,4 @@ MIT
 
 ## Maintainers
 
-[Nuzulul Zulkarnain](https://github.com/nuzulul)
+[Nuzulul Zulkarnain](https://github.com/nuzulul/telegram-scraper)

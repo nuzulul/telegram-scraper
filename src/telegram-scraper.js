@@ -1,3 +1,6 @@
+//! Copyright Nuzulul Zulkarnain. Released under The MIT License.
+//! telegram-scraper -- https://github.com/nuzulul/telegram-scraper
+
 import html_parser from './html-parser.js'
 
 import https from 'https'
